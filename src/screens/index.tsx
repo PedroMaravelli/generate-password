@@ -1,6 +1,11 @@
-import { CardContainer, GenerateContainer, HeaderContainer, InputNumbers, Inputs, InputsForm, LeftAndRightCardContainer, LeftContentCard, RightContentCard } from "./style";
+import { useContext } from "react";
+import { CardContainer, GenerateContainer, InputNumbers, Inputs, InputsForm, LeftAndRightCardContainer, LeftContentCard, RightContentCard } from "./style";
+import { GenerateContext } from "../context/generateContext";
 
 export function GeneratePassword(){
+
+    const {password, generatePasswordByData} = useContext(GenerateContext)
+
     return(
         <GenerateContainer>
             <CardContainer>
@@ -30,10 +35,10 @@ export function GeneratePassword(){
                     </LeftContentCard>
                     <LeftContentCard>
                         <InputsForm>
-                            <label htmlFor="simbolos">Caracteres Especiais </label>
+                            <label htmlFor="symbols">Caracteres Especiais </label>
                             <InputNumbers>
-                                <Inputs type="button" name="simbolos" id="simbolos" value="Sim" />
-                                <Inputs type="button" name="simbolos" id="simbolos" value="Não" />
+                                <Inputs type="button" name="symbols" id="symbols" value="Sim" />
+                                <Inputs type="button" name="symbols" id="symbols" value="Não" />
                         </InputNumbers>
 
                         </InputsForm>
@@ -50,7 +55,7 @@ export function GeneratePassword(){
 
                     <RightContentCard>
                         <p>Senha</p>
-                        <input type="text"/>
+                        <input type="text" value={password}/>
                         <button type="submit">Gerar Senha </button>
                     </RightContentCard>
                 </LeftAndRightCardContainer>
