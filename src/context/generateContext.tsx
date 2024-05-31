@@ -26,7 +26,7 @@ export function GenerateProvider({children}: GenerateProviderProps ){
     const [password, setPassword] = useState('')
 
 
-    function generatePasswordByData({length, numbers, symbols, uppercase}: PasswordProps){
+    async function generatePasswordByData({length, numbers, symbols, uppercase}: PasswordProps){
         const passwordGenerate = generator.generate({
             length,
             numbers,
@@ -34,7 +34,7 @@ export function GenerateProvider({children}: GenerateProviderProps ){
             uppercase,
         })
 
-        setPassword(passwordGenerate)
+        await setPassword(passwordGenerate)
     }
 
 
